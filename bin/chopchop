@@ -1,0 +1,21 @@
+#!/bin/bash
+
+export state="$HOME/.chopstatus"
+export current="`cat $state`"
+if [ "$current" == "on" ]; then
+    echo "off" > $state
+    exit 0
+else
+    echo "on" > $state
+fi
+
+xdotool search "Dota 2" windowactivate
+
+while [ "`cat $state`" != "off" ]; do
+    for i in `seq 1 100`; do
+        x=`sed -n "$i p" coordinates.txt | awk '{print $1}'`
+        y=`sed -n "$i p" coordinates.txt | awk '{print $2}'`
+        sleep 0.005
+        xdotool mousemove $x $y click 1
+    done
+done
