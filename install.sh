@@ -24,6 +24,9 @@ echo "Copying files .."
 cp -vr bin/ coordinates.txt $HOME
 echo "off" > $HOME/.chopstatus
 
+echo "Changing permissions .."
+chmod -v 755 $HOME/bin/chopchop $HOME/train-chopping
+
 echo "Setting up hotkeys .."
 cat xbindkeysrc >> $HOME/.xbindkeysrc
 
