@@ -10,9 +10,12 @@ else
 fi
 
 xdotool search "Dota 2" windowactivate
-
-while [ "`cat $state`" != "off" ]; do
-    for i in `seq 1 100`; do
+N="`cat $HOME/coordinates.txt | wc -l`"
+while [ 1 ]; do
+    for i in `seq 1 $N`; do
+        if [ "`cat $state`" == "off" ]; then
+            exit 0;
+        fi
         x=`sed -n "$i p" coordinates.txt | awk '{print $1}'`
         y=`sed -n "$i p" coordinates.txt | awk '{print $2}'`
         sleep 0.005

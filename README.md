@@ -13,7 +13,7 @@ Dota2 Tree Chopper for Clearcut Challenge of International Battle Pass 2016
 * You can work with custom trained path, and settings (click per 0.01 second), or adjust it as you wish.
 * Key in xbindkeysrc
 * Delay and other parameters in bin/chopchop
-* Training parameters in bin/train-chopchop
+* Training parameters in bin/train-chopping
 * If your screen resolution is different than 1920x1080 you will have to train first
 
 ## Training

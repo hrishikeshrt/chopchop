@@ -3,7 +3,7 @@
 echo "Switch to Dota 2 window within next 10 seconds, go to Clearcut Challenge tree cutting page."
 echo "Trace the mouse movements you want to simulate."
 echo "Continue? (y/n): "
-read -c1 answer
+read -n1 answer
 
 if [ "${answer,,}" != "y" ]; then
     exit 0;
@@ -12,6 +12,7 @@ fi
 cp $HOME/coordinates.txt $HOME/coordinates.backup
 
 sleep 10
-for i in `seq 1 100`; do
-    xdotool getmouseposition | sed 's_x:\([0-9]*\) y:\([0-9]*\) .*_\1 \2_g' >> $HOME/coordinates.txt
+for i in `seq 1 500`; do
+    sleep 0.03
+    xdotool getmouselocation | sed 's_x:\([0-9]*\) y:\([0-9]*\) .*_\1 \2_g' >> $HOME/coordinates.txt
 done
